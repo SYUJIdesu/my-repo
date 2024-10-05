@@ -1,0 +1,9 @@
+name: HELLO #ワークフロー名
+on: push # イベント (プッシュ時に起動)
+jobs: # ジョブの定義
+    hello: # ジョブのID　各ジョブを識別
+        runs-on: ubuntu-latest # ランナー(Ubuntuで実行)
+        steps: # ステップの実行
+            - run: echo "Hello, World" # シェルコマンドの実行
+            - run: actions/checkout@v4 # アクションの呼び出し　
+            # stepはrun(シェルコマンドの実行)とuses(github actionsのモジュールを呼び出せます withは入力パラメータ可能)

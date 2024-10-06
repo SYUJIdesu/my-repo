@@ -1,0 +1,10 @@
+name: Naminig
+run-name: Run by @${{ github.actor }} #ワークフロー実行者
+on: push
+jobs:
+    print:
+        name: jon name #ジョブ名の設定
+        runs-on: ubuntu-latest
+        steps:
+            - name: amazing script #ステップ名の指定
+              run: echo "Hello"

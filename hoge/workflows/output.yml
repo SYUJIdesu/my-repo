@@ -1,0 +1,13 @@
+name: github_output
+on: push 
+jobs:
+    share:
+        runs-on: ubuntu-latest
+        steps:
+            - id: source #ステップIDを設定
+              run: echo "result=hello" >> "${GITHUB_OUTPUT}" #GITHUB_OUTPUTへ書き出し
+            - env:
+                RESULT: ${{ steps.source.outputs.result }} #stepsコンテキストから参照
+              run: echo "${RESULT}"
+            - run: echo "RESULT=hello" >> "${GITHUB_ENV}"
+            - run: echo "${RESULT}"

@@ -1,0 +1,12 @@
+name: override
+on: push
+env:
+  EXAMPLE: defined by workflow level
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${EXAMPLE}"
+      - env:
+          EXAMPLE: step level
+        run: echo "${EXAMPLE}"

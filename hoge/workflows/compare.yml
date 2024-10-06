@@ -1,0 +1,14 @@
+name: compare
+on: push
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    steps:
+      - run: printenv | grep "_func"
+        env:
+          CONTAINS_FUNC: ${{ contains('hello', 'ell') }} #ellを含めるか
+          STARTS_WITH_FUNC: ${{ startsWith('hello', 'he') }} #heで始めるか
+          ENDS_WITH_FUNC: ${{ endsWith('hello', 'lo') }} #loで終わるか
+          FORMAT_FUNC: ${{ format('{0}, {1}', 'hi', 'world') }} # フォーマット
+          JOIN_FUNC: ${{ join(github.event.*.html_url, ',') }} #間まで結合
+          CONTEXT: ${{ toJson(github) }} # githubコンテキストをJSON文字列でダンプ

@@ -1,0 +1,9 @@
+name: conditions
+on: push
+jobs:
+    skip-or-run:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "hello"
+              if: ${{ contains(github.run_id, '1') }}
+							#実行IDに1があるかで分岐
